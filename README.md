@@ -88,3 +88,4 @@ To deploy this project on AWS, follow these steps:
 
 ---
 
+Sources: I followed a step-by-step guide from aosnote.com to complete my first AWS DevOps project.
