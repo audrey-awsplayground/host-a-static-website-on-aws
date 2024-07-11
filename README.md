@@ -1,3 +1,4 @@
+![Alt text](/Host_a_Static_Website_on_AWS.png)
 
 ---
 
@@ -7,50 +8,33 @@ This project demonstrates the deployment of a static HTML web application on AWS
 
 ## Architecture Overview
 
-![Architecture Diagram](link-to-your-diagram-image)
+1. **Virtual Private Cloud (VPC):** Configured a VPC with public and private subnets across two availability zones for network isolation and redundancy.
 
-1. **Virtual Private Cloud (VPC):**
-   - Configured a VPC with public and private subnets across two availability zones for network isolation and redundancy.
+2. **Internet Gateway:** Deployed an Internet Gateway to enable communication between VPC instances and the internet.
 
-2. **Internet Gateway:**
-   - Deployed an Internet Gateway to enable communication between VPC instances and the internet.
+3. **Security Groups:** Established Security Groups acting as firewalls to control inbound and outbound traffic to instances.
 
-3. **Security Groups:**
-   - Established Security Groups acting as firewalls to control inbound and outbound traffic to instances.
+4. **Availability Zones:** Utilized multiple Availability Zones to enhance system availability and fault tolerance.
 
-4. **Availability Zones:**
-   - Utilized multiple Availability Zones to enhance system availability and fault tolerance.
+5. **Subnets:** Public subnets were used for resources like NAT Gateway and Application Load Balancer. Private subnets hosted web servers (EC2 instances) for enhanced security.
 
-5. **Subnets:**
-   - Public subnets were used for resources like NAT Gateway and Application Load Balancer.
-   - Private subnets hosted web servers (EC2 instances) for enhanced security.
+6. **EC2 Instance Connect:** Implemented EC2 Instance Connect for secure SSH connections to instances within both public and private subnets.
 
-6. **EC2 Instance Connect:**
-   - Implemented EC2 Instance Connect for secure SSH connections to instances within both public and private subnets.
+7. **NAT Gateway:** Enabled private subnet instances to access the internet via NAT Gateway while remaining private.
 
-7. **NAT Gateway:**
-   - Enabled private subnet instances to access the internet via NAT Gateway while remaining private.
+8. **Web Server Deployment:** Hosted the static website files on EC2 instances deployed in private subnets.
 
-8. **Web Server Deployment:**
-   - Hosted the static website files on EC2 instances deployed in private subnets.
+9. **Application Load Balancer (ALB):** Utilized ALB with a target group to distribute web traffic evenly across an Auto Scaling Group of EC2 instances in multiple AZs.
 
-9. **Application Load Balancer (ALB):**
-   - Utilized ALB with a target group to distribute web traffic evenly across an Auto Scaling Group of EC2 instances in multiple AZs.
+10. **Auto Scaling Group:** Managed EC2 instances automatically to ensure website availability, scalability, fault tolerance, and elasticity.
 
-10. **Auto Scaling Group:**
-    - Managed EC2 instances automatically to ensure website availability, scalability, fault tolerance, and elasticity.
+11. **Version Control and Collaboration:** Stored website files on GitHub for version control and collaboration.
 
-11. **Version Control and Collaboration:**
-    - Stored website files on GitHub for version control and collaboration.
+12. **Certificate Manager:** Secured application communications using certificates managed by AWS Certificate Manager (ACM).
 
-12. **Certificate Manager:**
-    - Secured application communications using certificates managed by AWS Certificate Manager (ACM).
+13. **Simple Notification Service (SNS):** Configured SNS to send notifications about activities within the Auto Scaling Group.
 
-13. **Simple Notification Service (SNS):**
-    - Configured SNS to send notifications about activities within the Auto Scaling Group.
-
-14. **Domain Name and DNS:**
-    - Registered a domain name and set up DNS records using Amazon Route 53.
+14. **Domain Name and DNS:** Registered a domain name and set up DNS records using Amazon Route 53.
 
 ## Deployment Script
 
